@@ -1,5 +1,5 @@
 package br.com.lima.TabelaFipe.model;
 
-public class Dados(String codigo, String nome) {
+public record Dados(String codigo, String nome) {
 
 }
