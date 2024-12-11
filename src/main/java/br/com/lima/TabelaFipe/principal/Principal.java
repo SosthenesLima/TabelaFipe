@@ -5,6 +5,7 @@
 package br.com.lima.TabelaFipe.principal;
 
 import br.com.lima.TabelaFipe.model.Dados;
+import br.com.lima.TabelaFipe.model.Modelos;
 import br.com.lima.TabelaFipe.service.ConsumoApi;
 import br.com.lima.TabelaFipe.service.ConverteDados;
 
@@ -54,5 +55,15 @@ public class Principal {
                 .sorted(Comparator.comparing(Dados::codigo))
                 .forEach(System.out::println);
 
+        System.out.println("Informe o Código da narca para a consulta ");
+        var codigoMarca = leitura.nextLine();
+
+        endereco = endereco + "/" + codigoMarca + "/modelos";
+        json = consumo.obterDados(endereco);
+        var modeloLista = conversor.obterDados(json, Modelos.class);
+        System.out.println("\nModelos dessa marca: ");
+        modeloLista.modelos().stream()
+                .sorted(Comparator.comparing(Dados::codigo))
+                .forEach(System.out::println);
     }
 }
