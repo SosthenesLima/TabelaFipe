@@ -65,5 +65,8 @@ public class Principal {
         modeloLista.modelos().stream()
                 .sorted(Comparator.comparing(Dados::codigo))
                 .forEach(System.out::println);
+
+        System.out.println("\nDigite um trecho do nome do carro a ser buscado");
+
     }
 }
