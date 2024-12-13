@@ -80,6 +80,13 @@ public class Principal {
         System.out.println("\nModelos filtrados");
         modelosFiltrados.forEach(System.out::println);
 
+        System.out.println("Digite por favor o código do modelo para buscar os valores de avaliação");
+        var codigoModelo = leitura.nextLine();
+
+        endereco = endereco + "/" + codigoModelo + "/anos";
+        json = consumo.obterDados(endereco);
+        List<Dados> anos = conversor.obterLista(json, Dados.class);
+
 
 
     }
