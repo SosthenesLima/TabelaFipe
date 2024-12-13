@@ -11,6 +11,7 @@ import br.com.lima.TabelaFipe.service.ConverteDados;
 
 import java.awt.*;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -77,7 +78,9 @@ public class Principal {
                   .collect(Collectors.toList());
 
         System.out.println("\nModelos filtrados");
-        modelosFiltrados
+        modelosFiltrados.forEach(System.out::println);
+
+
 
     }
 }
