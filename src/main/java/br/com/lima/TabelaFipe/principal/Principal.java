@@ -12,6 +12,7 @@ import br.com.lima.TabelaFipe.service.ConverteDados;
 import java.awt.*;
 import java.util.Comparator;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Principal {
     private  Scanner leitura = new Scanner(System.in);
@@ -55,6 +56,8 @@ public class Principal {
                 .sorted(Comparator.comparing(Dados::codigo))
                 .forEach(System.out::println);
 
+
+
         System.out.println("Informe o Código da narca para a consulta ");
         var codigoMarca = leitura.nextLine();
 
@@ -67,6 +70,14 @@ public class Principal {
                 .forEach(System.out::println);
 
         System.out.println("\nDigite um trecho do nome do carro a ser buscado");
+        var nomeVeiculo = leitura.nextLine();
+
+        List<Dados> modelosFiltrados = modeloLista.modelos().stream()
+                .filter(m -> m.nome().toLowerCase().contains(nomeVeiculo.toLowerCase()))
+                  .collect(Collectors.toList());
+
+        System.out.println("\nModelos filtrados");
+        modelosFiltrados
 
     }
 }
