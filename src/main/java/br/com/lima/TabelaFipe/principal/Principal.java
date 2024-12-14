@@ -6,10 +6,12 @@ package br.com.lima.TabelaFipe.principal;
 
 import br.com.lima.TabelaFipe.model.Dados;
 import br.com.lima.TabelaFipe.model.Modelos;
+import br.com.lima.TabelaFipe.model.Veiculo;
 import br.com.lima.TabelaFipe.service.ConsumoApi;
 import br.com.lima.TabelaFipe.service.ConverteDados;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -87,7 +89,15 @@ public class Principal {
         json = consumo.obterDados(endereco);
         List<Dados> anos = conversor.obterLista(json, Dados.class);
 
+        List<Veiculo> veiculos = new ArrayList<>();
 
-
+        for (int i = 0; i < anos.size(); i++) {
+            var enderecoAno = endereco + "/" + anos.get(i).codigo();
+            json = consumo.obterDados(enderecoAno);
+            Veiculo veiculo = conversor.obterDados(json, Veiculo.class);
+            veiculos.add(veiculo);
+        }
+        System.out.println("\nTodos os Veículos filtrados por ano: ");
+        veiculos.forEach(System.out::println);
     }
 }
