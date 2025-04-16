@@ -1,3 +1,7 @@
+/*
+  By Sósthenes Lima
+ */
+
 package br.com.lima.TabelaFipe.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
