@@ -1,5 +1,8 @@
 /*
   By Sósthenes Lima
+  Goiânia-Go
+  18/04/2025
+
  */
 
 package br.com.lima.TabelaFipe.model;
