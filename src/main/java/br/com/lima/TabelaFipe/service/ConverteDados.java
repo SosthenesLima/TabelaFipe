@@ -1,6 +1,6 @@
 /*
   By Sósthenes Oliveira Lima
-  Palmas-to
+  Palmas-TO
   Finalização 2025
  */
 
